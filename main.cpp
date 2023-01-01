@@ -47,11 +47,6 @@ map<int, Mat> extractRoi(const vector<vector<Point>> &contour_template, Mat gray
     map<int , Mat> map;
     for(int i =0;i<contour_template.size();++i){
         cv::Rect bbox= cv::boundingRect(contour_template[i]);
-        // select a slightly large roi
-        // bbox.x-=5;
-        // bbox.y-=5;
-        // bbox.width+=5;
-        // bbox.height+=5;
         Mat roi = gray(bbox);
         Mat resized;
         cv::resize(roi, resized,Size(50, 50));
